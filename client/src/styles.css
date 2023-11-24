@@ -1,0 +1,604 @@
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: black;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  margin: 0;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: 0.75s;
+}
+
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+
+.row {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width:100%;
+}
+
+.row input{
+  margin-top:auto;
+  border: 1px solid #404040;
+  border-radius: 20px;
+  height: 10px;
+}
+
+.row button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  text-align: center;
+}
+
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #396cd8;
+}
+button:active {
+  border-color: #396cd8;
+  background-color: #e8e8e8;
+}
+
+input,
+button {
+  outline: none;
+}
+
+#greet-input {
+  margin-right: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: black;
+  }
+
+  a:hover {
+    color: #24c8db;
+  }
+
+  input,
+  button {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+  }
+  button:active {
+    background-color: #0f0f0f69;
+  }
+}
+
+.imessage {
+  background-color: black;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco";
+  font-size: 1.25rem; 
+  margin-top: 50px;
+  width: auto;
+  height: 728px;
+  overflow-y: scroll;
+  padding: 0.5rem 1.5rem;
+}
+
+.imessage p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 60%;
+  padding: 0.8rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.imessage p::before,
+.imessage p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
+}
+
+p.from-me {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  align-self: flex-end;
+  background-color: #809EBE;
+  color: #fff; 
+}
+
+p.from-me::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #809EBE;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-me::after {
+  background-color: black;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform:translate(-30px, -2px);
+  width: 10px;
+}
+
+p[class^="from-"] {
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+p.from-me ~ p.from-me {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+
+p.from-me ~ p.from-me:last-child {
+  margin-bottom: 0.5rem;
+}
+
+p.from-them {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  align-items: flex-start;
+  background-color: #E6E5EB;
+  color: #000;
+}
+
+p.from-them:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #E6E5EB;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.from-them::after {
+  background-color: black;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+p[class^="from-"].emoji {
+  background: none;
+  font-size: 2.5rem;
+}
+
+p[class^="from-"].emoji::before {
+  content: none;
+}
+
+.no-tail::before {
+  display: none;
+}
+
+.margin-b_none {
+  margin-bottom: 0 !important;
+}
+
+.margin-b_one {
+  margin-bottom: 1rem !important;
+}
+
+.margin-t_one {
+  margin-top: 1rem !important;
+}
+
+
+@font-face {
+  font-family: "SanFrancisco";
+  src:
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
+}
+
+body {  
+  font-family: -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    "Helvetica Neue", 
+    sans-serif;
+  font-weight: normal;
+  margin: 0; height: 100%; overflow:hidden ; 
+}
+* {background-color: black;
+  color: white;
+}
+
+input{
+  background-color: black;
+  color: white;
+}
+button{
+  background-color: black;
+  color: white;
+}
+.card *{
+  color: black;
+  background-color: transparent;
+}
+.topnav *{
+  background-color: transparent;
+}
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1rem;
+}
+.match_card *{
+  background-color: transparent;
+  color: black;
+}
+
+h1 {
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  border-bottom: 1px solid #e5e5ea;
+  color: #666;
+  font-weight: normal;
+  margin-top: 0;
+  padding-bottom: 1.5rem;
+}
+
+
+.comment {
+  color: #222;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+  padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    margin: 0 0;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .imessage {
+    font-size: 1.05rem;
+    max-width: 600px;
+    padding: 0.5rem 2.375rem;
+  }
+
+  .imessage p {
+    margin: 0.5rem 0;
+  }
+}
+
+
+.return{
+  text-align: left;
+}
+
+
+.return_button {
+  position: fixed;
+  top:0;
+  z-index: 2000000;
+  width:50px;
+  height:50px;
+  background: transparent;
+}
+.return_button:active{
+  background-color: transparent;
+}
+.return_button:not( :hover ){
+  border: transparent;
+}
+.return_button:hover{
+  border:none;
+}
+
+.topnav{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  z-index: 1000001;
+  width: 100%; /* Full width */
+  height: 50px;
+  background-color: #2E2D2D;
+}
+
+.topnav .return{
+  width: 50%;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight:900;
+}
+
+.topnav .rtopnav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+.msg_flow_l{
+  display: flex;
+  align-items: left;
+}
+
+.msg_flow_r{
+  display: flex;
+  justify-content:  right;
+  justify-content: flex-end;
+}
+.avatar_l {
+  margin-top: auto;
+  margin-left: -25px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  z-index: 100000;
+  border-radius: 50%;
+}
+.avatar_r {
+  margin-top: auto;
+  margin-right: -25px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  z-index: 100000;
+  border-radius: 50%;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInD {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+.menu{
+  transition: 1s;
+  position: fixed;
+  top:50px;
+  width: 100%;
+  animation-name: fadeInD;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  z-index: 1000000;
+}
+.start_hint{
+  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:90%;
+  text-align: center;
+  background-color: #809ebe6f;
+  margin-left: auto;
+  margin-right: auto;
+  height: 105px;
+  border-radius: 1.15rem;
+}
+.mitem{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(58, 58, 58);
+
+}
+
+.mitem:hover{
+  background-color: grey;
+}
+.typing-indicator {
+  will-change: transform;
+  display: flex;
+}
+.typing-indicator  span {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    height: 10px;
+    width: 10px;
+    float: left;
+    margin: 0 1px;
+    background-color: #9E9EA1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+
+
+#svs{
+  width: 100%;
+  margin-top: 150px;
+  margin-bottom: auto;
+  object-fit: cover;
+  animation-name: disappear;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}
+
+#matching_anim{
+  width: 140%;
+  margin-left: -20%;
+  margin-top: 150px;
+  margin-bottom: auto;
+  object-fit: auto;
+  animation-name: disappear;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}
+
+.match_card{
+  z-index: 1s;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 10px;
+  width: 70%;
+  background-color: aliceblue;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px #000000;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+.match_card b{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+
+}
+
+#carddesc{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#bottom_mcard{
+  background-color: #809EBE;
+  z-index: 0;
+  margin-top: -10px;
+}
+
+.match_title{
+  margin-top: 200px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+#find_match{
+  position: absolute;
+  height:100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#matching_desc{
+  height:30%;
+  width: 60%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.135);
+  border-radius: 10px;
+  color:white;
+  font-size: large;
+  padding:10px;
+}
